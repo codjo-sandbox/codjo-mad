@@ -1,6 +1,5 @@
 net.codjo.mad.server
 	-> net.codjo.agent
-	-> net.codjo.mad.common
 	-> net.codjo.security.common.api
 	-> net.codjo.security.server.api
 	-> net.codjo.test.common
