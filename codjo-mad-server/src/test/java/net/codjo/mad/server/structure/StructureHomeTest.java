@@ -5,13 +5,15 @@
  */
 package net.codjo.mad.server.structure;
 import net.codjo.mad.server.handler.HandlerContext;
-import net.codjo.util.file.FileUtil;
 import net.codjo.test.common.XmlUtil;
+import net.codjo.util.file.FileUtil;
+import org.junit.Test;
+
 import java.sql.Connection;
 import java.sql.SQLException;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
-import org.junit.Test;
 
 public class StructureHomeTest {
     private StructureHome structureHome = new StructureHome();
@@ -43,7 +45,7 @@ public class StructureHomeTest {
 
         // Verification du resultat
         String etalon = FileUtil.loadContent(getClass().getResource("/conf/test/structureEtalon.xml"));
-        XmlUtil.assertEquals(etalon, xmlFile);
+        XmlUtil.assertEquivalent(etalon, xmlFile);
     }
 
 

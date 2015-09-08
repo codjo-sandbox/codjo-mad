@@ -4,21 +4,15 @@
  * Copyright (c) 2001 AGF Asset Management.
  */
 package net.codjo.mad.server.util;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.Savepoint;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Map;
+
 /**
  * Classer permettant de simplifier une délégation de connexion JDBC.
  *
  * @version $Revision: 1.3 $
  */
-public abstract class ConnectionAdapterMock implements Connection {
+abstract class AbstractConnectionAdapterMock implements Connection {
     public Statement createStatement() throws SQLException {
         return getSubConnection().createStatement();
     }
@@ -142,8 +136,7 @@ public abstract class ConnectionAdapterMock implements Connection {
     }
 
 
-    protected abstract Connection getSubConnection()
-          throws SQLException;
+    protected abstract Connection getSubConnection();
 
 
     public void setHoldability(int holdability) throws SQLException {

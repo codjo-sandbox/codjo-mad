@@ -6,14 +6,15 @@
 package net.codjo.mad.server.util;
 import net.codjo.test.common.LogString;
 import net.codjo.test.common.mock.ConnectionMock;
+
+import javax.sql.DataSource;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
-import javax.sql.DataSource;
 /**
  * Mock de DataSource J2EE.
  */
-public class DataSourceMock implements DataSource {
+abstract class AbstractDataSourceMock implements DataSource {
     private LogString log = new LogString();
     private ConnectionMock connectionMock = new ConnectionMock();
 

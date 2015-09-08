@@ -4,25 +4,18 @@
  * Copyright (c) 2001 AGF Asset Management.
  */
 package net.codjo.mad.server.util;
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.Savepoint;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Map;
 /**
  * Decorateur de connexion.
  *
  * <p> Chaque appel sur le decorateur est délégué vers la sous-connexion. </p>
  */
-public class ConnectionDecorator implements Connection {
-    private Connection connection;
+abstract class AbstractConnectionDecorator implements Connection {
+    Connection connection;
 
 
-    protected ConnectionDecorator(Connection connection) {
+    AbstractConnectionDecorator(Connection connection) {
         this.connection = connection;
     }
 

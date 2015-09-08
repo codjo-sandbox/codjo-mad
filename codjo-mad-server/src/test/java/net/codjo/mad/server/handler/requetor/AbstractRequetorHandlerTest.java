@@ -4,14 +4,6 @@ import net.codjo.database.common.api.JdbcFixture;
 import net.codjo.mad.server.handler.HandlerContext;
 import net.codjo.mad.server.util.ConnectionAdapterMock;
 import net.codjo.test.common.XmlUtil;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.SQLException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 import org.apache.xpath.XPathAPI;
 import org.junit.After;
 import org.junit.Before;
@@ -20,6 +12,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class AbstractRequetorHandlerTest {
     private static final String EXPECTED_XML =
@@ -154,7 +155,7 @@ public class AbstractRequetorHandlerTest {
 
 
         @Override
-        protected Connection getSubConnection() throws SQLException {
+        protected Connection getSubConnection() {
             return connection;
         }
 

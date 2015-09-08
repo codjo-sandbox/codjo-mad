@@ -6,7 +6,9 @@ net.codjo.mad.client.plugin
 	-> net.codjo.mad.client.request
 	-> net.codjo.mad.client.request.util
 	-> net.codjo.mad.common
+	-> net.codjo.mad.common.message
 	-> net.codjo.plugin.common
+	-> net.codjo.security.client.plugin
 	-> net.codjo.test.common
 	-> net.codjo.test.common.fixture
 	-> net.codjo.test.common.matcher
@@ -23,5 +25,6 @@ net.codjo.mad.client.request
 	-> org.exolab.castor.xml
 	
 net.codjo.mad.client.request.util
+	-> net.codjo.mad.client.plugin
 	-> net.codjo.mad.client.request
 	-> org.easymock

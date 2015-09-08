@@ -5,17 +5,14 @@
  */
 package net.codjo.mad.server.structure;
 import net.codjo.mad.common.Log;
-import net.codjo.mad.common.structure.DefaultStructureReader;
-import net.codjo.mad.common.structure.DefaultTableStructure;
-import net.codjo.mad.common.structure.FieldStructure;
-import net.codjo.mad.common.structure.SqlUtil;
-import net.codjo.mad.common.structure.StructureReader;
-import net.codjo.mad.common.structure.TableStructure;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.util.Collection;
+import net.codjo.mad.common.structure.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.SAXParseException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -25,12 +22,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.xml.sax.ErrorHandler;
-import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.util.Collection;
 /**
  * Classe permettant de charge des objets <code>TableStructure</code> et de fusionner le résultat avec la
  * structure par défaut.

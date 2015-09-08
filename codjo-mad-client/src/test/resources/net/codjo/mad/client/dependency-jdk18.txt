@@ -1,27 +1,20 @@
-net.codjo.mad.client
-	-> net.codjo.mad.common
 net.codjo.mad.client.plugin
 	-> net.codjo.agent
-	-> net.codjo.agent.test
+	-> net.codjo.agent.util
+	-> net.codjo.agent.behaviour
 	-> net.codjo.mad.client.request
 	-> net.codjo.mad.client.request.util
 	-> net.codjo.mad.common
+	-> net.codjo.mad.common.message
 	-> net.codjo.plugin.common
-	-> net.codjo.test.common
-	-> net.codjo.test.common.fixture
-	-> net.codjo.test.common.matcher
+	-> net.codjo.security.client.plugin
 	-> net.codjo.util.system
 
 net.codjo.mad.client.request
 	-> net.codjo.mad.client.plugin
 	-> net.codjo.mad.client.request.util
-	-> net.codjo.mad.common
-	-> net.codjo.test.common
-	-> net.codjo.test.common.fixture
-	-> org.easymock
+
+net.codjo.mad.client.request.util
 	-> org.exolab.castor.mapping
 	-> org.exolab.castor.xml
-	
-net.codjo.mad.client.request.util
-	-> net.codjo.mad.client.request
-	-> org.easymock
+	-> org.xml.sax

@@ -31,6 +31,7 @@ net.codjo.mad.server.handler
 
 net.codjo.mad.server.handler.aspect
 	-> net.codjo.aspect
+	-> net.codjo.aspect.util
 	-> net.codjo.mad.server.handler
 	-> net.codjo.tokio
 	-> org.w3c.dom
@@ -68,9 +69,11 @@ net.codjo.mad.server.handler.util
 
 net.codjo.mad.server.plugin
 	-> net.codjo.agent
+	-> net.codjo.agent.protocol
 	-> net.codjo.agent.test
 	-> net.codjo.aspect
 	-> net.codjo.mad.common
+	-> net.codjo.mad.common.message
 	-> net.codjo.mad.server
 	-> net.codjo.mad.server.handler
 	-> net.codjo.mad.server.handler.sql
