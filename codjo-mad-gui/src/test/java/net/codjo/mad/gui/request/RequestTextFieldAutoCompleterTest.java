@@ -1,19 +1,13 @@
 package net.codjo.mad.gui.request;
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import net.codjo.mad.client.request.FieldsList;
 import net.codjo.mad.client.request.MadServerFixture;
 import net.codjo.mad.client.request.RequestException;
-import org.uispec4j.Key;
-import org.uispec4j.ListBox;
-import org.uispec4j.TextBox;
-import org.uispec4j.Trigger;
-import org.uispec4j.UISpecTestCase;
-import org.uispec4j.Window;
+import org.uispec4j.*;
 import org.uispec4j.interception.WindowHandler;
 import org.uispec4j.interception.WindowInterceptor;
+
+import javax.swing.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
 /**
  *
  */
@@ -60,7 +54,7 @@ public class RequestTextFieldAutoCompleterTest extends UISpecTestCase {
         }).process(new WindowHandler() {
             @Override
             public Trigger process(Window window) throws Exception {
-                assertEquals("E", textBox.getText());
+                assertEquals("e", textBox.getText());
                 assertAutoCompleteList(window, 5,
                                        new String[]{"portefeuille1",
                                                     "portefeuille2",

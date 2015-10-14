@@ -1,10 +1,14 @@
 package net.codjo.mad.gui.request;
+
+import junit.framework.TestCase;
 import net.codjo.mad.client.request.FieldsList;
 import net.codjo.mad.client.request.RequestException;
 import net.codjo.mad.client.request.Row;
 import net.codjo.mad.gui.framework.DefaultGuiContext;
 import net.codjo.mad.gui.request.util.DefaultErrorHandler;
-import junit.framework.TestCase;
+
+import java.util.TreeSet;
+
 /**
  * Test de la classe DataLink.
  */
@@ -305,8 +309,8 @@ public class DataLinkTest extends TestCase {
         assertEquals("joinKeyFather", fatherDataSource.getColumns()[1]);
         assertEquals("joinKeySame", fatherDataSource.getColumns()[2]);
 
-        assertEquals("[joinKeySon, colSon1, joinKeySame]",
-                     sonDataSource.getDeclaredFields().keySet().toString());
+        assertEquals("[colSon1, joinKeySame, joinKeySon]",
+                     new TreeSet<String>(sonDataSource.getDeclaredFields().keySet()).toString());
     }
 
 
@@ -329,8 +333,8 @@ public class DataLinkTest extends TestCase {
         assertEquals("joinKeySon", sonDataSource.getColumns()[1]);
         assertEquals("joinKeySame", sonDataSource.getColumns()[2]);
 
-        assertEquals("[joinKeyFather, joinKeySame, colFath1]",
-                     fatherDataSource.getDeclaredFields().keySet().toString());
+        assertEquals("[colFath1, joinKeyFather, joinKeySame]",
+                     new TreeSet<String>(fatherDataSource.getDeclaredFields().keySet()).toString());
     }
 
 

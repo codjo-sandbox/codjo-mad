@@ -1,10 +1,11 @@
 package net.codjo.mad.gui.request.factory;
+import junit.framework.TestCase;
 import net.codjo.mad.client.request.FieldsList;
 import net.codjo.mad.client.request.Request;
 import net.codjo.test.common.XmlUtil;
+
 import java.util.HashMap;
 import java.util.Map;
-import junit.framework.TestCase;
 /**
  *
  */
@@ -45,7 +46,7 @@ public class CommandFactoryTest extends TestCase {
 
         String xml = getRequestLikeUpdateAsXml(request.getRequestId());
 
-        XmlUtil.assertEquals(xml, request.toXml());
+        XmlUtil.assertEquivalent(xml, request.toXml());
     }
 
 

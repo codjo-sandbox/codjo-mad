@@ -1,17 +1,12 @@
 package net.codjo.mad.gui.request.util;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
 import net.codjo.gui.toolkit.date.NoNullDateField;
 import net.codjo.mad.gui.MadGuiContext;
 import net.codjo.mad.gui.request.DetailDataSource;
-import org.uispec4j.Button;
-import org.uispec4j.CheckBox;
-import org.uispec4j.Key;
-import org.uispec4j.Panel;
-import org.uispec4j.TextBox;
-import org.uispec4j.UISpecTestCase;
+import org.uispec4j.*;
+
+import javax.swing.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 /**
  *
  */
@@ -55,7 +50,8 @@ public class UndoRedoTest extends UISpecTestCase {
         Thread.sleep(200);
         assertGuiComponents(true, "OK", "24-08-2007");
 
-        textFieldWrapper.pressKey(Key.N);
+        textField.setCaretPosition(0);
+        textFieldWrapper.pressKey(Key.shift(Key.N));
         assertGuiComponents(true, "NOK", "24-08-2007");
 
         dateField.setDate(java.sql.Date.valueOf("2007-08-30"));

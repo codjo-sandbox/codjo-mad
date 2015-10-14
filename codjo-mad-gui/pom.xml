@@ -68,7 +68,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>uispec4j</groupId>
+            <groupId>org.uispec4j</groupId>
             <artifactId>uispec4j</artifactId>
             <scope>test</scope>
         </dependency>
@@ -81,6 +81,12 @@
         <dependency>
             <groupId>net.codjo.mad</groupId>
             <artifactId>codjo-mad-client</artifactId>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.codjo.mad</groupId>
+            <artifactId>codjo-mad-common</artifactId>
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
@@ -126,6 +132,19 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- this is needed to work with our (probably broken) test comparator in RequestComboBoxTest and java 8 -->
+                    <argLine>-Djava.util.Arrays.useLegacyMergeSort=true</argLine>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <!--
     | Project Information

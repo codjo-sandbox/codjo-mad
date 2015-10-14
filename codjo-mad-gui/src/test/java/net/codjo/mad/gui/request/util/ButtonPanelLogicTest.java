@@ -1,26 +1,9 @@
 package net.codjo.mad.gui.request.util;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JInternalFrame;
-import javax.swing.JTextField;
 import junit.framework.TestCase;
-import net.codjo.mad.client.request.FieldsList;
-import net.codjo.mad.client.request.RequestException;
-import net.codjo.mad.client.request.RequestSender;
-import net.codjo.mad.client.request.Result;
-import net.codjo.mad.client.request.Row;
+import net.codjo.mad.client.request.*;
 import net.codjo.mad.gui.MadGuiContext;
 import net.codjo.mad.gui.framework.DefaultGuiContext;
-import net.codjo.mad.gui.request.DataLink;
-import net.codjo.mad.gui.request.DetailDataSource;
-import net.codjo.mad.gui.request.ErrorHandler;
-import net.codjo.mad.gui.request.JoinKeys;
-import net.codjo.mad.gui.request.ListDataSource;
-import net.codjo.mad.gui.request.Mock;
-import net.codjo.mad.gui.request.Preference;
+import net.codjo.mad.gui.request.*;
 import net.codjo.mad.gui.request.archive.ArchiveManager;
 import net.codjo.mad.gui.request.archive.ArchiveManagerFactory;
 import net.codjo.mad.gui.request.factory.RequestFactory;
@@ -28,7 +11,14 @@ import net.codjo.mad.gui.request.factory.SelectFactory;
 import net.codjo.mad.gui.request.undo.DataSourceUndoManager;
 import net.codjo.mad.gui.request.undo.DataSourceUndoManagerStub;
 import net.codjo.security.common.api.UserMock;
+import net.codjo.test.common.JdkUtil;
 import net.codjo.test.common.LogString;
+
+import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 /**
  * Test de la classe ButtonPanelLogic.
  *
@@ -545,7 +535,11 @@ public class ButtonPanelLogicTest extends TestCase {
         mock.getLog().clear();
 
         buttonPanelGui.getCancelButton().doClick();
-        mock.getLog().assertContent("setVisible(false), setVisible(false), setVisible(false)");
+        String expected = "setVisible(false), setVisible(false), setVisible(false)";
+        if (JdkUtil.JAVA_8) {
+            expected += ", setVisible(false)";
+        }
+        mock.getLog().assertContent(expected);
         mock.getLog().clear();
 
         logic.setCloseOnCancel(false);

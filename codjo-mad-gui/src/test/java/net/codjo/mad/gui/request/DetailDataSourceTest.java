@@ -1,32 +1,27 @@
 package net.codjo.mad.gui.request;
 import net.codjo.gui.toolkit.number.NumberField;
-import net.codjo.mad.client.request.FieldsList;
-import net.codjo.mad.client.request.InsertRequest;
-import net.codjo.mad.client.request.Request;
-import net.codjo.mad.client.request.RequestException;
-import net.codjo.mad.client.request.RequestSender;
-import net.codjo.mad.client.request.Result;
-import net.codjo.mad.client.request.Row;
-import net.codjo.mad.client.request.UpdateRequest;
+import net.codjo.mad.client.request.*;
 import net.codjo.mad.client.request.util.RequestTestHelper;
 import net.codjo.mad.common.structure.DefaultStructureReader;
-import static net.codjo.mad.gui.request.AbstractDataSource.NULL;
 import net.codjo.mad.gui.request.factory.SelectFactory;
 import net.codjo.mad.gui.request.factory.UpdateFactory;
 import net.codjo.mad.gui.request.util.MultiRequestsHelper;
 import net.codjo.security.common.api.UserMock;
+import org.uispec4j.TextBox;
+import org.uispec4j.assertion.Assertion;
+
+import javax.swing.*;
+import javax.swing.event.UndoableEditEvent;
+import javax.swing.event.UndoableEditListener;
+import javax.swing.undo.UndoManager;
+import javax.swing.undo.UndoableEdit;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JTextField;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
-import javax.swing.undo.UndoManager;
-import javax.swing.undo.UndoableEdit;
-import org.uispec4j.TextBox;
-import org.uispec4j.assertion.Assertion;
+
+import static net.codjo.mad.gui.request.AbstractDataSource.NULL;
 /**
  * Classe de test de <code>DetailDataSource</code>.
  *
@@ -1000,7 +995,7 @@ public class DetailDataSourceTest extends AbstractDataSourceTestCase {
 
         assertTrue(new Assertion() {
             @Override
-            public void check() throws Exception {
+            public void check() {
                 assertFalse(field.isEnabled());
             }
         });

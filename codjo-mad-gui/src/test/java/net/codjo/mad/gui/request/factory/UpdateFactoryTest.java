@@ -1,10 +1,11 @@
 package net.codjo.mad.gui.request.factory;
+import junit.framework.TestCase;
 import net.codjo.mad.client.request.FieldsList;
 import net.codjo.mad.client.request.Request;
 import net.codjo.test.common.XmlUtil;
+
 import java.util.HashMap;
 import java.util.Map;
-import junit.framework.TestCase;
 /**
  */
 public class UpdateFactoryTest extends TestCase {
@@ -28,7 +29,7 @@ public class UpdateFactoryTest extends TestCase {
 
         String xml = getRequestAsXml(request.getRequestId());
 
-        XmlUtil.assertEquals(xml, request.toXml());
+        XmlUtil.assertEquivalent(xml, request.toXml());
     }
 
 
@@ -50,7 +51,7 @@ public class UpdateFactoryTest extends TestCase {
         // xml ne contient pas le champs pimsCode
         String xml = getRequestAsXml(request.getRequestId());
 
-        XmlUtil.assertEquals(xml, request.toXml());
+        XmlUtil.assertEquivalent(xml, request.toXml());
     }
 
 
@@ -75,7 +76,7 @@ public class UpdateFactoryTest extends TestCase {
         // xml ne contient pas le champs excludedField
         String xml = getRequestAsXml(request.getRequestId());
 
-        XmlUtil.assertEquals(xml, request.toXml());
+        XmlUtil.assertEquivalent(xml, request.toXml());
     }
 
 
